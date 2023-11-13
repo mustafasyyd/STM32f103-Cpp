@@ -1,0 +1,26 @@
+#if !defined __GPIO__
+#define 	 __GPIO__
+
+PORTCONFIG::PORTCONFIG( GPIO_TypeDef* gpio , PORTS PORT , PINS PIN)
+	: gpio(gpio) , pin(PIN) , port(PORT)
+	{
+		RCC->APB2ENR |= 1<< port;
+		if(pin<8 && pin >=0)
+			gpio->CRL = GP_OUT_PUSHPULL << 4*pin;
+
+		else if( pin>=8 && pin < 15 )
+			gpio->CRH = GP_OUT_PUSHPULL << 4*(pin%8);
+	}
+
+void PORTCONFIG::write_pin(uint8_t logic)
+{
+	gpio->ODR |= logic << pin;
+}
+
+uint32_t PORTCONFIG::read_pin()
+{
+	unint32_t p = gpio->IDR;
+	return p &= (1<<pin);
+}
+
+#endif 		 __GPIO__
