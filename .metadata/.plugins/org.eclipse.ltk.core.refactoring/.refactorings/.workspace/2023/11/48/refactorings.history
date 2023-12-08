@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;PreRTOS/Core/Src/gpio.c&apos;" deleteContents="false" description="Delete resource &apos;PreRTOS/Core/Src/gpio.c&apos;" element1="/PreRTOS/Core/Src/gpio.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1701244714289"/>
+</session>

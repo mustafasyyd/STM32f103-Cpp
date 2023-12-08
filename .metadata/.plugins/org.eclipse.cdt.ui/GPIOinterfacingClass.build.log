@@ -1,0 +1,25 @@
+10:08:35 **** Incremental Build of configuration Debug for project GPIOinterfacingClass ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp:68:23: error: expected ';' at end of member declaration
+   68 |         GPIO_TypeDef* gpio
+      |                       ^~~~
+      |                           ;
+../Core/Src/main.cpp: In constructor 'PortCofig::PortCofig(GPIO_TypeDef*, PORTS, PINS)':
+../Core/Src/main.cpp:70:14: warning: 'PortCofig::pin' will be initialized after [-Wreorder]
+   70 |         PINS pin;
+      |              ^~~
+../Core/Src/main.cpp:69:15: warning:   'PORTS PortCofig::port' [-Wreorder]
+   69 |         PORTS port;
+      |               ^~~~
+../Core/Src/main.cpp:43:9: warning:   when initialized here [-Wreorder]
+   43 |         PortCofig( GPIO_TypeDef* gpio , PORTS PORT , PINS PIN)
+      |         ^~~~~~~~~
+../Core/Src/main.cpp:56:17: error: a function-definition is not allowed here before '{' token
+   56 |                 {
+      |                 ^
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+10:08:35 Build Failed. 3 errors, 3 warnings. (took 688ms)
+

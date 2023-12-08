@@ -1,6 +1,0 @@
-#if !defined __GPIO__
-#define 	 __GPIO__
-
-
-
-#endif 		 __GPIO__

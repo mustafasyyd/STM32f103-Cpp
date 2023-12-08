@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=" PERIPH_BASE"/>
+		<item key="selection" value="configSTACK_DEPTH_TYPE"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="configSTACK_DEPTH_TYPE"/>
+			<item value="usStackDepth"/>
+			<item value="portSTACK_TYPE"/>
+			<item value="BaseType_t xTaskCreate( "/>
+			<item value="xTaskCreate("/>
+			<item value="xTaskCr"/>
+			<item value="xTas"/>
+			<item value="vIdletask"/>
+			<item value="idletask"/>
+			<item value="idletask "/>
+			<item value="TIM_SR_UIF_Msk"/>
 			<item value=" PERIPH_BASE"/>
 			<item value="PERIPH_BASE"/>
 			<item value="APB2PERIPH_BASE"/>
 			<item value="SPI1_BASE"/>
-			<item value="SPI_T"/>
-			<item value="spi_T"/>
-			<item value="spi "/>
-			<item value="spi"/>
-			<item value="}uart"/>
-			<item value="uart"/>
-			<item value="PORTS"/>
 		</list>
 		<list key="replacehistory">
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="782"/>
-		<item key="DIALOG_Y_ORIGIN" value="231"/>
+		<item key="DIALOG_X_ORIGIN" value="1434"/>
+		<item key="DIALOG_Y_ORIGIN" value="207"/>
 		<item key="DIALOG_WIDTH" value="363"/>
 		<item key="DIALOG_HEIGHT" value="437"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

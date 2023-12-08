@@ -1,0 +1,39 @@
+10:08:39 **** Incremental Build of configuration Debug for project UART ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+../Core/Src/main.cpp: In constructor 'PortCofig::PortCofig(GPIO_TypeDef*, PORTS, PINS)':
+../Core/Src/main.cpp:68:14: warning: 'PortCofig::pin' will be initialized after [-Wreorder]
+   68 |         PINS pin;
+      |              ^~~
+../Core/Src/main.cpp:67:15: warning:   'PORTS PortCofig::port' [-Wreorder]
+   67 |         PORTS port;
+      |               ^~~~
+../Core/Src/main.cpp:45:9: warning:   when initialized here [-Wreorder]
+   45 |         PortCofig( GPIO_TypeDef* gpio , PORTS PORT , PINS PIN)
+      |         ^~~~~~~~~
+../Core/Src/main.cpp: In member function 'uint32_t PortCofig::read_pin()':
+../Core/Src/main.cpp:61:17: error: 'unint32_t' was not declared in this scope; did you mean 'uint32_t'?
+   61 |                 unint32_t p = gpio->IDR;
+      |                 ^~~~~~~~~
+      |                 uint32_t
+../Core/Src/main.cpp:62:24: error: 'p' was not declared in this scope
+   62 |                 return p &= (1<<pin);
+      |                        ^
+In file included from ../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f1xx.h:130,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h:29,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h:27,
+                 from ../Core/Inc/stm32f1xx_hal_conf.h:238,
+                 from ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.cpp:1:
+../Core/Src/main.cpp: In function 'int main()':
+../Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h:683:29: error: expression cannot be used as a function
+  683 | #define RCC                 ((RCC_TypeDef *)RCC_BASE)
+../Core/Src/main.cpp:87:3: note: in expansion of macro 'RCC'
+   87 |   RCC->APB2ENR |= (1<<0) | (1<<2) | (1<<14);
+      |   ^~~
+make: *** [Core/Src/subdir.mk:38: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+10:08:39 Build Failed. 4 errors, 3 warnings. (took 681ms)
+

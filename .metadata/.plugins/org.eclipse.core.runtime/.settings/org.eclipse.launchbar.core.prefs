@@ -1,9 +1,12 @@
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86_64
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GPIOinterfacing Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART Debug
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GPIOinterfacing Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PreRTOS Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FREERTOS Debug
 eclipse.preferences.version=1
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FREERTOS\ Debug/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:FREERTOS\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GPIOinterfacing\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:GPIOinterfacing\ Debug/activeLaunchTarget=null\:---
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PreRTOS\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Systick_Timer\ Debug/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:Systick_Timer\ Debug/activeLaunchTarget=null\:---

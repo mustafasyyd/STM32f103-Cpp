@@ -1,0 +1,56 @@
+#include "main.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+
+
+void Writer( void * pv );
+void Reader( void * pv );
+
+xQueueHandle_t xQueue;
+
+int main(void)
+{
+	  RCC->APB2ENR |= (1<<2) | (1<<4) ;
+	  GPIOC->CRH   |= (3<<20)		  ;
+	  GPIOA->CRL   |= (3<<4) | (3<<8) ;
+
+	  xQueue = xQueueCreate(5,size(char));
+
+	if(xQueue)
+	{
+		xTaskCreate(Writer , "Writer Task", 300, NULL,1, NULL);
+		xTaskCreate(Reader , "Reader Task", 300, NULL,1, NULL);
+
+		vTaskStartScheduler();
+	}
+
+	while (1)
+	{
+	}
+
+}
+
+
+void Writer( void * pv )
+{
+	char sendercontrol ='p';
+	for(;;)
+    {
+		xQueueSendToBack(xq, &sendercontrol, 150/portTICK_PERIOD_MS);
+    }
+}
+
+void Reader( void * pv )
+{
+	char RxControl = 0;
+	for(;;)
+    {
+		xQueueReceive(xq, &RxControl, 150/portTICK_PERIOD_MS);
+		if( RxControl == 'p')
+			GPIOC->ODR |= 1<<1;
+    }
+}
+
+

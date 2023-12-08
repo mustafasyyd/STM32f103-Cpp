@@ -49,34 +49,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := GPIOinterfacing
+BUILD_ARTIFACT_NAME := UART
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-GPIOinterfacing.elf \
+UART.elf \
 
 MAP_FILES += \
-GPIOinterfacing.map \
+UART.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-GPIOinterfacing.list \
+UART.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: GPIOinterfacing.elf secondary-outputs
+main-build: UART.elf secondary-outputs
 
 # Tool invocations
-GPIOinterfacing.elf GPIOinterfacing.map: $(OBJS) $(USER_OBJS) /home/mustafa/STM32CubeIDE/workspace_1.13.2/GPIOinterfacing/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "GPIOinterfacing.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/mustafa/STM32CubeIDE/workspace_1.13.2/GPIOinterfacing/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="GPIOinterfacing.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+UART.elf UART.map: $(OBJS) $(USER_OBJS) /home/mustafa/STM32CubeIDE/workspace_1.13.2/UART/STM32F103C8TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"/home/mustafa/STM32CubeIDE/workspace_1.13.2/UART/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -85,14 +85,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-GPIOinterfacing.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "GPIOinterfacing.list"
+UART.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "UART.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) GPIOinterfacing.elf GPIOinterfacing.list GPIOinterfacing.map default.size.stdout
+	-$(RM) UART.elf UART.list UART.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

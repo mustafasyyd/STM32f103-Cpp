@@ -1,0 +1,101 @@
+#include "main.h"
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+static void MX_GPIO_Init(void);
+
+int main(void)
+{
+  HAL_Init();
+  MX_GPIO_Init();
+
+  void LED_01( void * pv )
+  {
+//      for( ;; )
+//      {
+    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);
+    	  vTaskDelay(100/portTICK_PERIOD_MS);
+    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET);
+    	  vTaskDelay(100/portTICK_PERIOD_MS);
+
+//      }
+  }
+//
+//void LED_02( void * pv )
+//{
+//    for( ;; )
+//    {
+//    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_SET);
+//    	  vTaskDelay(250/portTICK_PERIOD_MS);
+//    	  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_14, GPIO_PIN_RESET);
+//    	  vTaskDelay(250/portTICK_PERIOD_MS);
+//
+//    }
+//}
+//void LED_03( void * pv )
+//{
+//    for( ;; )
+//    {
+//    	 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_SET);
+//    	 vTaskDelay(500/portTICK_PERIOD_MS);
+//    	 HAL_GPIO_WritePin(GPIOC, GPIO_PIN_15, GPIO_PIN_RESET);
+//    	 vTaskDelay(500/portTICK_PERIOD_MS);
+//    }
+//}
+
+
+  while (1)
+  {
+
+	  xTaskCreate(LED_01 , "Led01 Task", 300, NULL, 2, NULL);
+//	  xTaskCreate(LED_02 , "Led02 Task", 300, NULL, 2, NULL);
+//	  xTaskCreate(LED_03 , "Led03 Task", 300, NULL, 2, NULL);
+
+	  vTaskStartScheduler();
+
+
+  }
+
+}
+
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOC_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : PC13 PC14 PC15 */
+  GPIO_InitStruct.Pin = GPIO_PIN_13|GPIO_PIN_14|GPIO_PIN_15;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
+}
+
+
+#ifdef  USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */

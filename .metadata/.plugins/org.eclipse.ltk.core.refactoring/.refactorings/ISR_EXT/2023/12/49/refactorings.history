@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ISR_INTERNAL/ISR_INTERNAL.ioc&apos; to &apos;ISR_EXT.ioc&apos;" description="Rename resource &apos;ISR_INTERNAL.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="ISR_INTERNAL.ioc" name="ISR_EXT.ioc" stamp="1701954652388" updateReferences="true"/>
+</session>

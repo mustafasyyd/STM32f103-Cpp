@@ -1,0 +1,125 @@
+10:08:36 **** Incremental Build of configuration Debug for project SPI ****
+make -j8 all 
+arm-none-eabi-g++ "../Core/Src/gpio.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/gpio.d" -MT"Core/Src/gpio.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/gpio.o"
+arm-none-eabi-g++ "../Core/Src/main.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+arm-none-eabi-g++ "../Core/Src/spi.cpp" -mcpu=cortex-m3 -std=gnu++14 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/spi.d" -MT"Core/Src/spi.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/spi.o"
+In file included from ../Core/Src/gpio.cpp:1:
+../Core/Src/gpio.hpp:9:33: error: expected ')' before '*' token
+    9 |         PORTCONFIG (GPIO_TypeDef* gpio , PORTS PORT , PINS PIN);
+      |                    ~            ^
+      |                                 )
+../Core/Src/gpio.hpp:10:24: error: 'uint8_t' has not been declared
+   10 |         void write_pin(uint8_t logic);
+      |                        ^~~~~~~
+../Core/Src/gpio.hpp:11:9: error: 'uint32_t' does not name a type
+   11 |         uint32_t read_pin();
+      |         ^~~~~~~~
+../Core/Src/gpio.hpp:1:1: note: 'uint32_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+  +++ |+#include <cstdint>
+    1 | #if !defined __GPIO__
+In file included from ../Core/Src/spi.cpp:1:
+../Core/Src/spi.hpp:9:21: error: expected ')' before 'cr1'
+    9 |         SPI(uint32_t cr1);
+      |            ~        ^~~~
+      |                     )
+../Core/Src/spi.hpp:12:9: error: 'uint32_t' does not name a type
+   12 |         uint32_t cr1;
+      |         ^~~~~~~~
+../Core/Src/spi.hpp:1:1: note: 'uint32_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+  +++ |+#include <cstdint>
+    1 | #if !defined __SPI__
+../Core/Src/gpio.hpp:14:9: error: 'GPIO_TypeDef' does not name a type
+   14 |         GPIO_TypeDef* gpio;
+      |         ^~~~~~~~~~~~
+../Core/Src/spi.cpp:18:9: error: expected constructor, destructor, or type conversion before '(' token
+   18 | SPI::SPI(uint32_t cr1)
+      |         ^
+../Core/Src/gpio.hpp:15:9: error: 'PORTS' does not name a type
+   15 |         PORTS port;
+      |         ^~~~~
+../Core/Src/gpio.hpp:16:9: error: 'PINS' does not name a type
+   16 |         PINS pin;
+      |         ^~~~
+../Core/Src/gpio.cpp:38:23: error: expected constructor, destructor, or type conversion before '(' token
+   38 | PORTCONFIG::PORTCONFIG( GPIO_TypeDef* gpio , PORTS PORT , PINS PIN)
+      |                       ^
+../Core/Src/gpio.cpp:49:6: error: variable or field 'write_pin' declared void
+   49 | void PORTCONFIG::write_pin(uint8_t logic)
+      |      ^~~~~~~~~~
+../Core/Src/gpio.cpp:49:28: error: 'uint8_t' was not declared in this scope
+   49 | void PORTCONFIG::write_pin(uint8_t logic)
+      |                            ^~~~~~~
+../Core/Src/gpio.cpp:2:1: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+    1 | #include "gpio.hpp"
+  +++ |+#include <cstdint>
+    2 | 
+../Core/Src/gpio.cpp:54:1: error: 'uint32_t' does not name a type
+   54 | uint32_t PORTCONFIG::read_pin()
+      | ^~~~~~~~
+../Core/Src/gpio.cpp:54:1: note: 'uint32_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+make: *** [Core/Src/subdir.mk:44: Core/Src/spi.o] Error 1
+make: *** Waiting for unfinished jobs....
+make: *** [Core/Src/subdir.mk:44: Core/Src/gpio.o] Error 1
+In file included from ../Core/Src/main.cpp:2:
+../Core/Src/gpio.hpp:9:42: error: 'PORTS' has not been declared
+    9 |         PORTCONFIG (GPIO_TypeDef* gpio , PORTS PORT , PINS PIN);
+      |                                          ^~~~~
+../Core/Src/gpio.hpp:9:55: error: 'PINS' has not been declared
+    9 |         PORTCONFIG (GPIO_TypeDef* gpio , PORTS PORT , PINS PIN);
+      |                                                       ^~~~
+../Core/Src/gpio.hpp:15:9: error: 'PORTS' does not name a type
+   15 |         PORTS port;
+      |         ^~~~~
+../Core/Src/gpio.hpp:16:9: error: 'PINS' does not name a type
+   16 |         PINS pin;
+      |         ^~~~
+../Core/Src/main.cpp: In function 'int main()':
+../Core/Src/main.cpp:19:24: error: 'AFIOEN' was not declared in this scope; did you mean 'AFIO'?
+   19 |   RCC->APB2ENR |= ( 1<<AFIOEN
+      |                        ^~~~~~
+      |                        AFIO
+../Core/Src/main.cpp:20:40: error: 'SPI1EN' was not declared in this scope; did you mean 'SPI1'?
+   20 |                                   | 1<<SPI1EN
+      |                                        ^~~~~~
+      |                                        SPI1
+../Core/Src/main.cpp:21:40: error: 'IOPAEN' was not declared in this scope
+   21 |                                   | 1<<IOPAEN );
+      |                                        ^~~~~~
+../Core/Src/main.cpp:24:3: error: 'PortCofig' was not declared in this scope
+   24 |   PortCofig spi_sck  (GPIOA, PORTA , PIN_5);
+      |   ^~~~~~~~~
+../Core/Src/main.cpp:25:12: error: expected ';' before 'spi_miso'
+   25 |   PortCofig spi_miso (GPIOA, PORTA , PIN_6);
+      |            ^~~~~~~~~
+      |            ;
+../Core/Src/main.cpp:26:12: error: expected ';' before 'spi_mosi'
+   26 |   PortCofig spi_mosi (GPIOA, PORTA , PIN_7);
+      |            ^~~~~~~~~
+      |            ;
+../Core/Src/main.cpp:29:19: error: 'BIDIMODECRCEN' was not declared in this scope
+   29 |   SPI spi1 ( ( 1<<BIDIMODECRCEN )
+      |                   ^~~~~~~~~~~~~
+../Core/Src/main.cpp:30:27: error: 'BIDIMODE' was not declared in this scope
+   30 |                      |(1<<BIDIMODE)
+      |                           ^~~~~~~~
+../Core/Src/main.cpp:31:27: error: 'MSTR' was not declared in this scope
+   31 |                      |(1<<MSTR)
+      |                           ^~~~
+../Core/Src/main.cpp:32:27: error: 'BR' was not declared in this scope
+   32 |                      |(3<<BR)
+      |                           ^~
+../Core/Src/main.cpp:33:27: error: 'RXONLY' was not declared in this scope
+   33 |                      |(1<<RXONLY)
+      |                           ^~~~~~
+../Core/Src/main.cpp:34:27: error: 'CRCNEXT' was not declared in this scope
+   34 |                      |(1<<CRCNEXT)
+      |                           ^~~~~~~
+../Core/Src/main.cpp:35:27: error: 'CRCEN' was not declared in this scope; did you mean 'CRC'?
+   35 |                      |(1<<CRCEN)       );
+      |                           ^~~~~
+      |                           CRC
+make: *** [Core/Src/subdir.mk:44: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+10:08:37 Build Failed. 34 errors, 0 warnings. (took 731ms)
+

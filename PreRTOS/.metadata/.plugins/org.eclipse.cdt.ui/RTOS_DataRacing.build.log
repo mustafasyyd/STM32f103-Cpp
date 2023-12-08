@@ -1,0 +1,23 @@
+10:57:39 **** Incremental Build of configuration Debug for project RTOS_DataRacing ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
+Error: Cannot find the specified linker script. Check the linker settings in the build configuration.
+make: *** [makefile:102: fail-specified-linker-script-missing] Error 2
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/main.c:24:
+../Core/Src/main.c: In function 'task1':
+../Core/Inc/queue.h:400:36: warning: passing argument 2 of 'xQueueGenericSend' makes pointer from integer without a cast [-Wint-conversion]
+  400 |     xQueueGenericSend( ( xQueue ), ( pvItemToQueue ), ( xTicksToWait ), queueSEND_TO_BACK )
+      |                                    ^~~~~~~~~~~~~~~~~
+      |                                    |
+      |                                    char
+../Core/Src/main.c:76:17: note: in expansion of macro 'xQueueSendToBack'
+   76 |                 xQueueSendToBack(queue,control, 150/portTICK_PERIOD_MS);
+      |                 ^~~~~~~~~~~~~~~~
+../Core/Inc/queue.h:658:50: note: expected 'const void * const' but argument is of type 'char'
+  658 |                               const void * const pvItemToQueue,
+      |                               ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+10:57:40 Build Failed. 3 errors, 1 warnings. (took 329ms)
+

@@ -1,0 +1,5 @@
+../Core/Src/freertos.c:87:6:vApplicationIdleHook	4	static
+../Core/Src/freertos.c:106:6:MX_FREERTOS_Init	8	static
+../Core/Src/freertos.c:154:6:StartTask01	16	static
+../Core/Src/freertos.c:174:6:StartTask02	16	static
+../Core/Src/freertos.c:194:6:StartTask03	16	static

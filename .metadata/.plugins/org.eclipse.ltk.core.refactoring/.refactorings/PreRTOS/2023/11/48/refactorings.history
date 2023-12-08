@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PreRTOS/GPIOinterfacing.ioc&apos; to &apos;PreRTOS.ioc&apos;" description="Rename resource &apos;GPIOinterfacing.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="GPIOinterfacing.ioc" name="PreRTOS.ioc" stamp="1701244334672" updateReferences="true"/>
+</session>
