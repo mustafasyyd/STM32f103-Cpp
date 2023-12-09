@@ -1,14 +1,15 @@
-17:56:58 **** Incremental Build of configuration Debug for project RTOS_OLED ****
+09:53:49 **** Incremental Build of configuration Debug for project RTOS_Semaphore ****
 make -j8 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../Core/Inc -I../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F1xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfloat-abi=soft -mthumb -o "Core/Src/main.o"
-arm-none-eabi-gcc -o "RTOS_OLED.elf" @"objects.list"   -mcpu=cortex-m3 -T"/home/mustafa/STM32CubeIDE/workspace_1.13.2/PreRTOS/RTOS_OLED/STM32F103C8TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="RTOS_OLED.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: RTOS_OLED.elf
- 
-arm-none-eabi-size   RTOS_OLED.elf 
-arm-none-eabi-objdump -h -S  RTOS_OLED.elf  > "RTOS_OLED.list"
-   text	   data	    bss	    dec	    hex	filename
-  23804	    132	  13564	  37500	   927c	RTOS_OLED.elf
-Finished building: default.size.stdout
- 
-Finished building: RTOS_OLED.list
- 
+Error: Cannot find the specified linker script. Check the linker settings in the build configuration.
+make: *** [makefile:102: fail-specified-linker-script-missing] Error 2
+make: *** Waiting for unfinished jobs....
+In file included from ../Core/Src/main.c:5:
+../Core/Inc/semphr.h:735:40: error: initializer element is not constant
+  735 |     #define xSemaphoreCreateMutex()    xQueueCreateMutex( queueQUEUE_TYPE_MUTEX )
+      |                                        ^~~~~~~~~~~~~~~~~
+../Core/Src/main.c:7:28: note: in expansion of macro 'xSemaphoreCreateMutex'
+    7 | SemaphoreHandle_t xsema =  xSemaphoreCreateMutex();
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:61: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.

@@ -3,3 +3,4 @@
 1702025025215	Delete 3 resources
 1702040410016	Delete resource 'RTOS_TxRx_Oled'
 1702046203431	Delete resource 'RTOS_OLED/Core/Src/stm32f1xx_it.c'
+1702107471665	Delete resource 'RTOS_Semaphore'

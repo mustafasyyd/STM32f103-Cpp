@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;RTOS_Semaphore/RTOS_OLED.ioc&apos; to &apos;RTOS_Semaphore.ioc&apos;" description="Rename resource &apos;RTOS_OLED.ioc&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="RTOS_OLED.ioc" name="RTOS_Semaphore.ioc" stamp="1702107429767" updateReferences="true"/>
+</session>
